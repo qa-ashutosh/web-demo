@@ -1,6 +1,6 @@
 exports.config = {
-    user: process.env.BROWSERSTACK_USERNAME || "ashutoshparihar_d8N1A5",
-    key: process.env.BROWSERSTACK_ACCESS_KEY || "yJF7R6HrzmJhA3qbreh6",
+    // user: process.env.BROWSERSTACK_USERNAME || "ashutoshparihar_d8N1A5",
+    // key: process.env.BROWSERSTACK_ACCESS_KEY || "yJF7R6HrzmJhA3qbreh6",
     // host: 'hub.browserstack.com',
     //
     // ====================
@@ -24,8 +24,8 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
-        // './test/specs/example.e2e.js'
+        // './test/specs/**/*.js'
+        './test/specs/example.e2e.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -68,11 +68,11 @@ exports.config = {
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
         
-        'bstack:options' : {
-            "projectName" : "web-demo",
-            "buildName" : "jenkins_build",
-            "local" : "true",
-            },
+        // 'bstack:options' : {
+        //     "projectName" : "web-demo",
+        //     "buildName" : "jenkins_build",
+        //     "local" : "true",
+        //     },
     }],
     //
     // ===================
@@ -123,12 +123,12 @@ exports.config = {
     // commands. Instead, they hook themselves up into the test process.
 
     // services: ['browserstack'],
-    services: [
-        ['@wdio/browserstack-service', {
-            browserstackLocal: true
-        }]
-        // ['@wdio/selenium-standalone-service']
-    ],
+    // services: [
+    //     ['@wdio/browserstack-service', {
+    //         browserstackLocal: true
+    //     }]
+    //     // ['@wdio/selenium-standalone-service']
+    // ],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
