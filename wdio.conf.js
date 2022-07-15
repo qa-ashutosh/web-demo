@@ -1,4 +1,7 @@
 exports.config = {
+    user: process.env.BROWSERSTACK_USERNAME || "ashutoshparihar_d8N1A5",
+    key: process.env.BROWSERSTACK_ACCESS_KEY || "yJF7R6HrzmJhA3qbreh6",
+    // host: 'hub.browserstack.com',
     //
     // ====================
     // Runner Configuration
@@ -21,7 +24,8 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        // './test/specs/**/*.js'
+        './test/specs/example.e2e.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -118,16 +122,13 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
 
-    // services: ['browserstack'],
+    services: ['browserstack'],
     // services: [
         // ['@wdio/browserstack-service', {
         //     browserstackLocal: true
         // }]
         // ['@wdio/selenium-standalone-service']
     // ],
-    // user: process.env.BROWSERSTACK_USERNAME || "ashutoshparihar_d8N1A5",
-    // key: process.env.BROWSERSTACK_ACCESS_KEY || "yJF7R6HrzmJhA3qbreh6",
-    // host: 'hub.browserstack.com',
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -149,7 +150,14 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec','dot'],
+    reporters: ['spec','dot',
+        ['junit', {
+            outputDir: './report',
+            outputFileFormat: function (options) {
+                return `results-${new Date().getTime()}.xml`;
+            }
+        }]
+    ],
 
 
     
